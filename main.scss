@@ -1,0 +1,820 @@
+@import "variables";
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Montserrat', 'Noto Sans JP', sans-serif;
+    margin-block-start: 0;
+
+    header {
+        height: 100vh;
+        position: relative;
+        overflow: hidden;
+
+        .circle-wrapper {
+            position: sticky;
+            left: -6vw;
+            width: 112vw;
+            display: flex;
+            flex-wrap: wrap;
+            flex-direction: row;
+            overflow: hidden;
+
+            .top-circle {
+                width: 12vh;
+                height: 12vh;
+                background: radial-gradient(circle, white calc(1.5vh), white 1.5vh, white 1.5vh);
+                border-radius: 50%;
+                overflow: hidden;
+            }
+        }
+
+        .logo-title {
+            font-size: 4rem;
+            font-weight: lighter;
+            position: absolute;
+            color: white;
+            top: 42%;
+            left: 50%;
+            transform: translateY(-50%) translateX(-50%);
+            text-align: center;
+            width: 65rem;
+            background-color: black;
+            padding: 10px 0;
+            transition: 0.3s;
+
+            /*小画面ではコンテンツを縮小*/
+            @media (max-width:80rem) {
+                width: 42rem;
+            }
+
+            @media (max-width:44rem) {
+                width: 80vw;
+                font-size: 8vw;
+            }
+        }
+    }
+
+    .gnav {
+        width: 100vw;
+        background-color: black;
+        padding: 15px 0;
+        z-index: 999;
+
+
+        ul {
+            padding: 0;
+            list-style-type: none;
+            display: flex;
+            justify-content: center;
+
+            a {
+                margin-left: 30px;
+                font-size: 30px;
+                font-weight: bold;
+                color: white;
+                text-decoration: none;
+                position: relative;
+
+                &::before {
+                    content: "";
+                    width: 0;
+                    height: 2px;
+                    background: #fff;
+                    display: block;
+                    position: absolute;
+                    top: 100%;
+                    left: 50%;
+                    -webkit-transform: translateX(-50%);
+                    transform: translateX(-50%);
+                    transition: .3s;
+                    z-index: 1000;
+                }
+
+                &:hover {
+                    &::before {
+                        width: 100%;
+                    }
+                }
+            }
+        }
+    }
+
+    #fixed-gnav {
+        position: fixed;
+        box-shadow: 0px 5px 20px -5px rgba(0, 0, 0, 0.36);
+    }
+
+    main {
+        background-color: white;
+        padding-top: 10px;
+        padding-bottom: 70px;
+
+        .contents-wrapper {
+            margin: 20px auto;
+            padding: 10px;
+            box-shadow: 8px -2px 25px -5px rgba(0, 0, 0, 0.33);
+
+            /*大画面では左右に余白*/
+            @media (min-width:1280px) {
+                background-color: #ccd7cc;
+                width: 1200px;
+            }
+
+            /*小画面ではコンテンツを縮小*/
+            @media (max-width:1279px) {
+                background-color: #ccd7cc;
+                width: 95vw;
+            }
+
+            section {
+                margin: 100px auto;
+                height: auto;
+                padding: 30px;
+                width: 75%;
+                background-color: #f3f3f3;
+                box-shadow: 0px 0px 20px 5px rgba(0, 0, 0, 0.2);
+
+                .section-title {
+                    text-align: center;
+                    font-size: 45px;
+                    font-weight: 100;
+                    margin-bottom: 30px;
+                }
+            }
+
+            .profile {
+                .profile-wrapper {
+                    margin: 0 auto;
+                    display: flex;
+                    flex-wrap: wrap;
+                    align-items: center;
+                    justify-content: center;
+                    width: 90%;
+
+                    .profile-contents {
+                        width: 250px;
+                        height: auto;
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+                        align-items: center;
+
+                        .profile-name {
+                            h3 {
+                                font-size: 24px;
+                                font-weight: 900;
+                            }
+                        }
+
+                        .profile-image {
+                            width: 200px;
+                            height: 200px;
+                            margin: 0 20px;
+
+                            .shadow {
+                                margin: 140px auto;
+                                width: 110px;
+                                height: 100px;
+                                border-radius: 50%;
+                                background-color: black;
+                                -webkit-filter: blur(10px) opacity(40%);
+                                -o-filter: blur(10px) opacity(40%);
+                                filter: blur(10px) opacity(40%);
+                                z-index: -1;
+                                animation: shadow 1s ease 0.5s infinite alternate none running;
+
+                                @keyframes shadow {
+                                    0% {
+                                        -webkit-transform: rotateX(80deg) scale($shadowScale1);
+                                        -ms-transform: rotateX(80deg) scale($shadowScale1);
+                                        -o-transform: rotateX(80deg) scale($shadowScale1);
+                                        transform: rotateX(80deg) scale($shadowScale1);
+                                    }
+
+                                    10% {
+                                        -webkit-transform: rotateX(80deg) scale($shadowScale2);
+                                        -ms-transform: rotateX(80deg) scale($shadowScale2);
+                                        -o-transform: rotateX(80deg) scale($shadowScale2);
+                                        transform: rotateX(80deg) scale($shadowScale2);
+                                    }
+
+                                    25% {
+                                        -webkit-transform: rotateX(80deg) scale($shadowScale3);
+                                        -ms-transform: rotateX(80deg) scale($shadowScale3);
+                                        -o-transform: rotateX(80deg) scale($shadowScale3);
+                                        transform: rotateX(80deg) scale($shadowScale3);
+                                    }
+
+                                    40% {
+                                        -webkit-transform: rotateX(80deg) scale($shadowScale4);
+                                        -ms-transform: rotateX(80deg) scale($shadowScale4);
+                                        -o-transform: rotateX(80deg) scale($shadowScale4);
+                                        transform: rotateX(80deg) scale($shadowScale4);
+                                    }
+
+                                    50% {
+                                        -webkit-transform: rotateX(80deg) scale($shadowScale5);
+                                        -ms-transform: rotateX(80deg) scale($shadowScale5);
+                                        -o-transform: rotateX(80deg) scale($shadowScale5);
+                                        transform: rotateX(80deg) scale($shadowScale5);
+                                    }
+
+                                    60% {
+                                        -webkit-transform: rotateX(80deg) scale($shadowScale4);
+                                        -ms-transform: rotateX(80deg) scale($shadowScale4);
+                                        -o-transform: rotateX(80deg) scale($shadowScale4);
+                                        transform: rotateX(80deg) scale($shadowScale4);
+                                    }
+
+                                    75% {
+                                        -webkit-transform: rotateX(80deg) scale($shadowScale3);
+                                        -ms-transform: rotateX(80deg) scale($shadowScale3);
+                                        -o-transform: rotateX(80deg) scale($shadowScale3);
+                                        transform: rotateX(80deg) scale($shadowScale3);
+                                    }
+
+                                    90% {
+                                        -webkit-transform: rotateX(80deg) scale($shadowScale2);
+                                        -ms-transform: rotateX(80deg) scale($shadowScale2);
+                                        -o-transform: rotateX(80deg) scale($shadowScale2);
+                                        transform: rotateX(80deg) scale($shadowScale2);
+                                    }
+
+                                    100% {
+                                        -webkit-transform: rotateX(80deg) scale($shadowScale1);
+                                        -ms-transform: rotateX(80deg) scale($shadowScale1);
+                                        -o-transform: rotateX(80deg) scale($shadowScale1);
+                                        transform: rotateX(80deg) scale($shadowScale1);
+                                    }
+                                }
+                            }
+
+                            .penguin {
+                                position: relative;
+                                width: 200px;
+                                height: 200px;
+                                margin-top: -345px;
+
+                                .penguin-body {
+                                    /*ペンギンの体*/
+                                    width: 120px;
+                                    height: 150px;
+                                    background-color: blue;
+                                    border-radius: 45% 45% 35% 35%;
+                                    border-style: solid;
+                                    border-width: 2px;
+                                    position: absolute;
+                                    left: calc(50% - 62px);
+                                    z-index: 7;
+
+                                    &::before {
+                                        /*ペンギンのお腹*/
+                                        content: "";
+                                        display: block;
+                                        width: 84px;
+                                        height: 85px;
+                                        border-radius: 45% 45% 30% 30%;
+                                        background: white;
+                                        position: absolute;
+                                        left: calc(50% - 42px);
+                                        bottom: 2px;
+                                        z-index: 8;
+                                    }
+                                }
+
+                                .penguin-eye {
+
+                                    /*ペンギンの目*/
+                                    .penguin-left-eye {
+                                        display: block;
+                                        width: 20px;
+                                        height: 20px;
+                                        border-radius: 50%;
+                                        border-style: solid;
+                                        border-width: 2px;
+                                        background-color: white;
+                                        top: 20px;
+                                        left: calc(50% - 29px);
+                                        position: absolute;
+                                        z-index: 89;
+                                    }
+
+                                    .penguin-left-pupil {
+                                        display: block;
+                                        width: 10px;
+                                        height: 10px;
+                                        border-radius: 50%;
+                                        background: black;
+                                        top: 27px;
+                                        left: calc(50% - 22px);
+                                        position: absolute;
+                                        z-index: 90;
+                                        transform: translate(0, 0);
+                                        transition: transform 0.1s;
+                                        transition-timing-function: ease-out;
+                                    }
+
+                                    .penguin-right-eye {
+                                        display: block;
+                                        width: 20px;
+                                        height: 20px;
+                                        border-radius: 50%;
+                                        border-style: solid;
+                                        border-width: 2px;
+                                        background-color: white;
+                                        top: 20px;
+                                        left: calc(50% + 5px);
+                                        position: absolute;
+                                        z-index: 89;
+                                    }
+
+                                    .penguin-right-pupil {
+                                        display: block;
+                                        width: 10px;
+                                        height: 10px;
+                                        border-radius: 50%;
+                                        background: black;
+                                        top: 27px;
+                                        left: calc(50% + 12px);
+                                        position: absolute;
+                                        z-index: 90;
+                                        transform: translate(0, 0);
+                                        transition: transform 0.1s;
+                                        transition-timing-function: ease-out;
+                                    }
+
+                                }
+
+                                .penguin-beak {
+                                    /*ペンギンのクチバシ*/
+                                    width: 30px;
+                                    height: 10px;
+                                    border: 2px solid;
+                                    border-radius: 0 0 50px 50px;
+                                    background-color: yellow;
+                                    //position: absolute;
+                                    //top: 55px;
+                                    //left: 40px;
+                                    position: absolute;
+                                    left: calc(50% - 17px);
+                                    top: 60px;
+                                    z-index: 10;
+
+                                    &::before {
+                                        content: "";
+                                        width: 0px;
+                                        height: 0px;
+                                        background: transparent;
+                                        border-bottom: 10px solid yellow;
+                                        border-left: 15px solid transparent;
+                                        border-right: 15px solid transparent;
+                                        position: absolute;
+                                        left: 0;
+                                        top: -12px;
+                                        z-index: 12;
+                                    }
+
+                                    &::after {
+                                        content: "";
+                                        width: 0px;
+                                        height: 0px;
+                                        background: transparent;
+                                        border-bottom: 12px solid black;
+                                        border-left: 17px solid transparent;
+                                        border-right: 17px solid transparent;
+                                        position: absolute;
+                                        left: -2px;
+                                        top: -14px;
+                                        z-index: 11;
+                                    }
+                                }
+
+                                .penguin-wings {
+                                    width: 5px;
+                                    height: 70px;
+                                    background-color: blue;
+                                    border-style: solid;
+                                    border-color: black;
+                                    border-radius: 60% 30% 90% 60%;
+                                    border-width: 2px;
+                                    position: absolute;
+                                    top: 60px;
+                                    left: 34px;
+                                    z-index: 13;
+
+                                    &::before {
+                                        content: "";
+                                        @extend .penguin-wings;
+                                        border-radius: 30% 60% 60% 90%;
+                                        top: -2px;
+                                        left: 121px;
+                                        z-index: 14;
+                                    }
+                                }
+
+                                .penguin-feet {
+                                    .penguin-left-foot {
+                                        width: 0px;
+                                        height: 0px;
+                                        background: transparent;
+                                        border-top: 40px solid yellow;
+                                        border-bottom: 0 solid transparent;
+                                        border-left: 8px solid transparent;
+                                        border-right: 8px solid transparent;
+                                        //transform: rotateX(78deg);
+                                        position: absolute;
+                                        left: 72px;
+                                        top: 133px;
+                                        z-index: 1;
+                                        animation: foot 1s ease 0.5s infinite alternate none running;
+
+                                        @keyframes foot {
+                                            0% {
+                                                transform: rotateX(78deg);
+                                            }
+
+                                            10% {
+                                                transform: rotateX(77deg);
+                                            }
+
+                                            25% {
+                                                transform: rotateX(70deg);
+                                            }
+
+                                            40% {
+                                                transform: rotateX(60deg);
+                                                ;
+                                            }
+
+                                            50% {
+                                                transform: rotateX(60deg);
+                                                ;
+                                            }
+
+                                            60% {
+                                                transform: rotateX(60deg);
+                                                ;
+                                            }
+
+                                            75% {
+                                                transform: rotateX(70deg);
+                                                ;
+                                            }
+
+                                            90% {
+                                                transform: rotateX(77deg);
+                                                ;
+                                            }
+
+                                            100% {
+                                                transform: rotateX(78deg);
+                                            }
+                                        }
+
+                                        &::before {
+                                            content: "";
+                                            @extend .penguin-left-foot;
+                                            left: -16px;
+                                            top: -40px;
+                                            z-index: 2;
+                                            animation: finger1 1s ease 0.5s infinite alternate none running;
+
+                                            @keyframes finger1 {
+                                                0% {
+                                                    transform: rotate(15deg);
+                                                }
+
+                                                10% {
+                                                    transform: rotate(15deg);
+                                                }
+
+                                                25% {
+                                                    transform: rotate(15deg);
+                                                }
+
+                                                40% {
+                                                    transform: rotate(15deg);
+                                                    ;
+                                                }
+
+                                                50% {
+                                                    transform: rotate(15deg);
+                                                    ;
+                                                }
+
+                                                60% {
+                                                    transform: rotate(15deg);
+                                                    ;
+                                                }
+
+                                                75% {
+                                                    transform: rotate(15deg);
+                                                    ;
+                                                }
+
+                                                90% {
+                                                    transform: rotate(15deg);
+                                                    ;
+                                                }
+
+                                                100% {
+                                                    transform: rotate(15deg);
+                                                }
+                                            }
+                                        }
+
+                                        &::after {
+                                            content: "";
+                                            @extend .penguin-left-foot;
+                                            //border-top-color: green;
+                                            transform: rotateY(-15deg);
+                                            left: 0;
+                                            top: -40px;
+                                            z-index: 3;
+                                            animation: finger2 1s ease 0.5s infinite alternate none running;
+
+                                            @keyframes finger2 {
+                                                0% {
+                                                    transform: rotate(-15deg);
+                                                }
+
+                                                10% {
+                                                    transform: rotate(-15deg);
+                                                }
+
+                                                25% {
+                                                    transform: rotate(-15deg);
+                                                }
+
+                                                40% {
+                                                    transform: rotate(-15deg);
+                                                    ;
+                                                }
+
+                                                50% {
+                                                    transform: rotate(-15deg);
+                                                    ;
+                                                }
+
+                                                60% {
+                                                    transform: rotate(-15deg);
+                                                    ;
+                                                }
+
+                                                75% {
+                                                    transform: rotate(-15deg);
+                                                    ;
+                                                }
+
+                                                90% {
+                                                    transform: rotate(-15deg);
+                                                    ;
+                                                }
+
+                                                100% {
+                                                    transform: rotate(-15deg);
+                                                }
+                                            }
+                                        }
+                                    }
+
+                                    .penguin-right-foot {
+                                        @extend .penguin-left-foot;
+                                        left: 112px;
+
+                                        &::before {
+                                            content: "";
+                                            @extend .penguin-left-foot;
+                                            left: -16px;
+                                            top: -40px;
+                                            transform: rotate(15deg);
+                                            z-index: 2;
+                                        }
+
+                                        &::after {
+                                            content: "";
+                                            width: 0px;
+                                            @extend .penguin-left-foot;
+                                            left: 0;
+                                            top: -40px;
+                                            transform: rotate(-15deg);
+                                            z-index: 3;
+                                        }
+                                    }
+
+                                    animation: feet 1s ease 0.5s infinite alternate none running;
+
+                                    @keyframes feet {
+                                        0% {
+                                            transform: translateY(0);
+                                        }
+
+                                        10% {
+                                            transform: translateY(2px);
+                                        }
+
+                                        25% {
+                                            transform: translateY(4px);
+                                        }
+
+                                        40% {
+                                            transform: translateY(6px);
+                                            ;
+                                        }
+
+                                        50% {
+                                            transform: translateY(6px);
+                                            ;
+                                        }
+
+                                        60% {
+                                            transform: translateY(6px);
+                                            ;
+                                        }
+
+                                        75% {
+                                            transform: translateY(4px);
+                                            ;
+                                        }
+
+                                        90% {
+                                            transform: translateY(2px);
+                                            ;
+                                        }
+
+                                        100% {
+                                            transform: translateY(0);
+                                        }
+                                    }
+                                }
+
+                                animation: jump 1s ease 0.5s infinite alternate none running;
+
+                                @keyframes jump {
+                                    0% {
+                                        transform: translate(0, 0);
+                                    }
+
+                                    10% {
+                                        transform: translate(0, -12.6px);
+                                    }
+
+                                    25% {
+                                        transform: translate(0, -26.2px);
+                                    }
+
+                                    40% {
+                                        transform: translate(0, -33.6px);
+                                    }
+
+                                    50% {
+                                        transform: translate(0, -35px);
+                                    }
+
+                                    60% {
+                                        transform: translate(0, -33.6px);
+                                    }
+
+                                    75% {
+                                        transform: translate(0, -26.2px);
+                                    }
+
+                                    90% {
+                                        transform: translate(0, -12.6px);
+                                    }
+
+                                    100% {
+                                        transform: translate(0, 0);
+                                    }
+                                }
+                            }
+
+
+                        }
+                    }
+
+                    .profile-desc {
+                        width: 60%;
+                        margin: 10px 0 10px 20px;
+
+                        span {
+                            display: inline-block;
+                        }
+                    }
+                }
+            }
+
+            .skills {
+                ul {
+                    padding: 0;
+                    display: flex;
+                    flex-wrap: wrap;
+                    justify-content: center;
+                    list-style-type: none;
+
+                    li {
+                        margin-left: 20px;
+
+                        i {
+                            font-size: 130px;
+                            margin: 10px;
+                            margin-top: 0px;
+                        }
+
+                        .fa-html5 {
+                            color: darkorange;
+                        }
+
+                        .fa-css3-alt {
+                            color: deepskyblue;
+                        }
+
+                        .fa-js {
+                            color: #f8d030;
+                        }
+
+                        .fa-java {
+                            color: #ee3340;
+                        }
+
+                        .fa-python {
+                            color: #6066ff;
+                        }
+
+                        .fa-github-square {
+                            color: #444;
+                        }
+
+                        .skill-desc {
+                            font-weight: bold;
+                            display: flex;
+                            flex-wrap: wrap;
+                            justify-content: center;
+                            margin-bottom: 15px;
+                        }
+                    }
+                }
+            }
+
+            .works {
+                .item-list {
+                    width: 90%; //いくつか@media設置できれいに
+                    margin: 0 auto;
+                    list-style-type: none;
+                    display: flex;
+                    justify-content: center;
+
+                    .item {
+                        margin: 0 50px 20px 50px;
+                        background-color: #444044;
+                        color: white;
+                        box-shadow: 0px 0px 15px 3px rgba(0, 0, 0, 0.2);
+                        padding: 10px 30px;
+                        display: flex;
+                        flex-wrap: wrap;
+
+                        @media (max-width:800px) {
+                            width: 200px;
+                        }
+
+                        img {
+                            width: 200px;
+                            height: 200px;
+                        }
+
+                        .item-caption {
+                            width: 200px;
+                        }
+
+                        .slick-next {
+                            right: 20px;
+                            z-index: 99;
+                        }
+
+                        .slick-prev {
+                            left: 15px;
+                            z-index: 100;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .footer {
+        background-color: black;
+        color: white;
+        padding: 20px 0;
+        margin-top: 20px;
+        text-align: center;
+    }
+
+    .sticky {
+        position: sticky;
+        top: 0;
+    }
+}
