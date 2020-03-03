@@ -30,8 +30,8 @@ $(function () {
         );
     });
 
-        $('.nav_toggle').on('click', function () {
-            $('.nav_toggle, .nav').toggleClass('show');
+        $('.gnav-toggle').on('click', function () {
+            $('.gnav-toggle, .gnav-list').toggleClass('show');
         });
 
     $(window).scroll(function () {
