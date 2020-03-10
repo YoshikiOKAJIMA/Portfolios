@@ -66,10 +66,11 @@ body {
         z-index: 999;
         position: relative;
 
-        .gnav-list {
+        .gnav-ul {
+            list-style-type: none;
+
             @media (min-width:1000px) {
                 padding: 0;
-                list-style-type: none;
                 display: flex;
                 justify-content: center;
             }
@@ -79,7 +80,7 @@ body {
                 top: 3rem;
                 right: 0;
                 padding: 1rem;
-                background-color: black;
+                background-color: rgba(0, 0, 0, 0.5);
                 opacity: 0;
                 visibility: hidden;
 
@@ -220,6 +221,7 @@ body {
                 width: 75%;
 
                 @media(max-width:999px) {
+                    margin: 30px auto;
                     padding: 5px;
                     width: 90vw;
                 }
@@ -861,36 +863,91 @@ body {
                         background-color: #444044;
                         color: white;
                         box-shadow: 0px 0px 15px 3px rgba(0, 0, 0, 0.2);
-                        padding: 10px 30px;
+                        padding: 20px 30px;
                         display: flex;
                         flex-wrap: wrap;
+                        align-items: center;
+                        justify-content: center;
 
                         @media (max-width:800px) {
                             width: 200px;
                         }
 
-                        img {
-                            width: 200px;
-                            height: 200px;
+                        .figure-wrapper {
+                            display: flex;
+                            flex-direction: column;
+                            align-items: center;
+                            margin: 0 5px;
+
+                            .item-caption-title {
+                                width: 200px;
+                                font-size: 18px;
+                                font-weight: bold;
+                                margin-bottom: 5px;
+                                text-align: left;
+                            }
+
+                            .item-figure {
+                                width: 200px;
+                            }
+
+
                         }
+
 
                         .item-caption {
-                            width: 200px;
-                        }
+                            width: 150px;
+                            margin: 0 5px;
 
-                        .slick-next {
-                            right: 20px;
-                            z-index: 99;
-                        }
+                            @media(max-width:800px) {
+                                width: 200px;
+                            }
 
-                        .slick-prev {
-                            left: 15px;
-                            z-index: 100;
+                            .item-caption-info {
+                                margin-top: 3px;
+                                font-size: 13px;
+                            }
+
+                            .item-link {
+                                margin-top: 5px;
+
+                                a:link {
+                                    color: #0000FF;
+                                }
+
+                                a:visited {
+                                    color: #00BFFF;
+                                }
+
+                                a:hover {
+                                    color: #FF4500;
+                                }
+                            }
                         }
                     }
                 }
             }
         }
+    }
+
+    .slider-arrow {
+        position: absolute;
+        top: 50%;
+        height: 36px;
+        margin-top: -18px;
+        color: #444044;
+        line-height: 36px;
+        font-size: 28px;
+        cursor: pointer;
+        z-index: 10;
+    }
+
+    .slider-prev {
+        left: -20px;
+    }
+
+    .slider-next {
+        right: -20px;
     }
 
     .footer {

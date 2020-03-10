@@ -1,0 +1,119 @@
+* {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    font-family: 'Montserrat', 'Noto Sans JP', sans-serif;
+}
+
+body {
+    .background {
+        background: url(image/background-image.png) no-repeat center;
+        z-index: -1;
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-size: 100vw 100vh;
+        -webkit-filter: blur(1.2vw);
+        -moz-filter: blur(1.2vw);
+        -o-filter: blur(1.2vw);
+        -ms-filter: blur(1.2vw);
+        filter: blur(1.2vw) brightness(103%);
+    }
+
+    .main {
+        width: 82vw;
+        margin: 10vh auto;
+
+        .whole-info {
+            .top-wrapper {
+                position: relative;
+                display: flex;
+                justify-content: center;
+                margin-bottom: 3vh;
+
+                .site-name {
+                    position: absolute;
+                    bottom: 0;
+                    left: 0;
+                    font-size: 40px;
+                }
+
+                .link-ul {
+                    position: absolute;
+                    bottom: 5px;
+                    left: 610px;
+                    display: flex;
+                    justify-content: center;
+
+                    .link-li {
+                        margin-left: 1vw;
+
+                        a {
+                            font-size: 20px;
+                            font-weight: 900;
+
+                            &:link {
+                                color: black;
+                            }
+
+                            &:visited {
+                                color: black;
+                            }
+
+                            &:hover {
+                                color: red;
+                            }
+                        }
+                    }
+                }
+            }
+
+            .capture-ul {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                align-items: center;
+
+                li:nth-child(1) img {
+                    margin-right: 3vw;
+                    width: 48vw;
+                    border: #333, 5px, solid;
+
+                    @media(max-width:800px) {
+                        width: 80vw;
+                    }
+                }
+
+                li:nth-child(2) img {
+                    margin-left: 3vw;
+                    width: 27vw;
+
+                    @media(max-width:800px) {
+                        width: 80vw;
+                    }
+                }
+            }
+
+            .skills-desc {
+                .skill-li {
+                    font-weight: 900;
+                }
+            }
+        }
+
+        .desc-ul {
+            .desc-li {
+                margin: 5vh auto;
+
+                .desc-title {
+                    font-size: 20px;
+                    font-weight: 900;
+                }
+            }
+
+        }
+    }
+
+}

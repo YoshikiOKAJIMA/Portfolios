@@ -334,11 +334,11 @@
             <i></i>
             <i></i>
         </span>
-        <ul class="gnav-list">
-            <li><a href="#header">TOP</a></li>
-            <li><a href="#profile">PROFILE</a></li>
-            <li><a href="#skills">SKILLS</a></li>
-            <li><a href="#works">WORKS</a></li>
+        <ul class="gnav-ul">
+            <li class="gnav-li"><a class="gnav-a" href="#header">TOP</a></li>
+            <li class="gnav-il"><a class="gnav-a" href="#profile">PROFILE</a></li>
+            <li class="gnav-li"><a class="gnav-a" href="#skills">SKILLS</a></li>
+            <li class="gnav-li"><a class="gnav-a" href="#works">WORKS</a></li>
         </ul>
     </nav>
     <!--  コンテンツ  -->
@@ -382,7 +382,7 @@
                     </div>
                     <!--  紹介文  -->
                     <div class="profile-desc">
-                        <span>千葉県に住む化学系大学院生です。フロントエンドエンジニアを目指しています。コーディングのほかにもピアノの練習やCGモデリングなど、わくわくすることで遊んでいます。フロントエンドの技術は、これまでに学んだJavaやPythonよりも楽しく遊べたため、追及したいと考えています。これからは、表現の幅を広げることを目標とし、Canvasなどを用いた表現を学ぶ所存です。</span>
+                        <span>千葉県に住む化学系大学院生です。フロントエンドエンジニアを目指しています。”わくわく”に従順で、コーディングのほかにもピアノの練習やCGモデリング、科学計算などで遊んでいます。フロントエンドの技術はこれまでに学んだJavaやPythonよりもデザインに近しく感じられ、ほかの言語と異なった幅広さや奥深さを感じました。夢の広がる技術に触ることが楽しく、これからも”わくわく”をドライビングフォースとして追及する所存です。</span>
                     </div>
                 </div>
             </section>
@@ -426,36 +426,58 @@
                 <div class="item-wrapper">
                     <ul class="item-list" id="item-list">
                         <li class="item">
-                            <figure>
-                                <a href="homepage.html" target="_blank" class="item-link">
-                                    <img src="image/homepage.png" alt="" />
-                                </a>
-                            </figure>
-                            <div class="item-caption">
+                            <div class="figure-wrapper">
                                 <p class="item-caption-title">HOME PAGE</p>
-                                <p class="item-caption-info">HTML, CSS, JS</p>
+                                <figure>
+                                    <a href="Portfolio.html" target="_blank">
+                                        <img class="item-figure" src="image/homepage.png" alt="本ページです。" />
+                                    </a>
+                                </figure>
+
+                            </div>
+
+                            <div class="item-caption">
+                                <p class="item-caption-info">本ページです。色々なwebページで用いられる技術を散りばめつつ、cssアニメーションなどで個性を演出しました。</p>
+                                <ul class="item-link">
+                                    <a href="intro_portfolio.html">紹介ページ</a>
+                                    <a href="https://github.com/YoshikiOKAJIMA/Portfolios">GitHub</a>
+                                </ul>
                             </div>
                         </li>
                         <li class="item">
-                            <figure>
-                                <a href="zoo.html" target="_blank" class="item-link">
-                                    <img src="image/zoo.png" alt="zooo!!!" />
-                                </a>
-                            </figure>
+                            <div class="figure-wrapper">
+                                <p class="item-caption-title">Coming soon!!</p>
+                                <figure>
+                                    <a href="homepage.html" target="_blank">
+                                        <img class="item-figure" src="image/ComingSoon.png" alt="" />
+                                    </a>
+                                </figure>
+
+                            </div>
                             <div class="item-caption">
-                                <p class="item-caption-title">動物園のサイトです。</p>
-                                <p class="item-caption-info">html, sass, jquery</p>
+                                <p class="item-caption-info">鋭意制作中です。今しばらくお待ちください。veu.jsやcanvasを用いたアニメーションとなる予定です。</p>
+                                <ul class="item-link">
+                                    <a href="">紹介ページ</a>
+                                    <a href="">GitHub</a>
+                                </ul>
                             </div>
                         </li>
                         <li class="item">
-                            <figure>
-                                <a href="image/CG-1.bmp" target="_blank" class="item-link">
-                                    <img src="image/CG-1.bmp" alt="3D-CGの自主課題です。" />
-                                </a>
-                            </figure>
+                            <div class="figure-wrapper">
+                                <p class="item-caption-title">Coming soon!!</p>
+                                <figure>
+                                    <a href="homepage.html" target="_blank">
+                                        <img class="item-figure" src="image/ComingSoon.png" alt="" />
+                                    </a>
+                                </figure>
+
+                            </div>
                             <div class="item-caption">
-                                <p class="item-caption-title">3D-CG</p>
-                                <p class="item-caption-info">blender</p>
+                                <p class="item-caption-info">鋭意制作中です。今しばらくお待ちください。veu.jsやcanvasを用いたアニメーションとなる予定です。</p>
+                                <ul class="item-link">
+                                    <a href="">紹介ページ</a>
+                                    <a href="">GitHub</a>
+                                </ul>
                             </div>
                         </li>
                     </ul>
@@ -463,8 +485,9 @@
             </section>
         </div>
     </main>
+    <!---  フッター  --->
     <footer class="footer sticky">
-        <section class="copyright">Copyright&copy; All Rights Reserved.</section>
+        <section class="copyright">&copy; 2020 Yoshiki OKAJIMA</section>
     </footer>
     <!--    scrollrevealによるスクロールアニメーション-->
     <script src="https://unpkg.com/scrollreveal@4"></script>

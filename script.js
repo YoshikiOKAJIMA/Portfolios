@@ -30,9 +30,9 @@ $(function () {
         );
     });
 
-        $('.gnav-toggle').on('click', function () {
-            $('.gnav-toggle, .gnav-list').toggleClass('show');
-        });
+    $('.gnav-toggle, .gnav-a').on('click', function () {
+        $('.gnav-toggle, .gnav-ul').toggleClass('show');
+    });
 
     $(window).scroll(function () {
         if ($(window).scrollTop() > $('#header').height()) {
@@ -82,6 +82,8 @@ $(function () {
             autoplay: false,
             adaptiveHeight: true,
             variableWidth: true,
+            prevArrow: '<div class="slider-arrow slider-prev fa fa-angle-left"></div>',
+            nextArrow: '<div class="slider-arrow slider-next fa fa-angle-right"></div>',
         });
     });
 });

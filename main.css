@@ -1,0 +1,643 @@
+@charset "UTF-8";
+/*.shadow: ペンギンの足元の影*/
+/*影の大きさ変化のアニメーション*/
+/*.penguin*/
+/**/
+* {
+  margin: 0;
+  padding: 0; }
+
+body {
+  font-family: 'Montserrat', 'Noto Sans JP', sans-serif;
+  margin-block-start: 0; }
+  body header {
+    height: 100vh;
+    position: relative;
+    overflow: hidden; }
+    body header .circle-wrapper {
+      position: sticky;
+      left: -6vw;
+      width: 112vw;
+      display: flex;
+      flex-wrap: wrap;
+      flex-direction: row;
+      overflow: hidden; }
+      body header .circle-wrapper .top-circle {
+        width: 12vh;
+        height: 12vh;
+        background: radial-gradient(circle, white calc(1.5vh), white 1.5vh, white 1.5vh);
+        border-radius: 50%;
+        overflow: hidden; }
+    body header .logo-title {
+      font-size: 4rem;
+      font-weight: lighter;
+      position: absolute;
+      color: white;
+      top: 42%;
+      left: 50%;
+      transform: translateY(-50%) translateX(-50%);
+      text-align: center;
+      width: 65rem;
+      background-color: black;
+      padding: 10px 0;
+      transition: 0.3s;
+      /*小画面ではコンテンツを縮小*/ }
+      @media (max-width: 80rem) {
+        body header .logo-title {
+          width: 42rem; } }
+      @media (max-width: 44rem) {
+        body header .logo-title {
+          width: 80vw;
+          font-size: 8vw; } }
+  body .gnav {
+    width: 100vw;
+    height: 40px;
+    background-color: black;
+    padding: 15px 0;
+    z-index: 999;
+    position: relative; }
+    body .gnav .gnav-ul {
+      list-style-type: none; }
+      @media (min-width: 1000px) {
+        body .gnav .gnav-ul {
+          padding: 0;
+          display: flex;
+          justify-content: center; } }
+      @media (max-width: 999px) {
+        body .gnav .gnav-ul {
+          position: absolute;
+          top: 3rem;
+          right: 0;
+          padding: 1rem;
+          background-color: rgba(0, 0, 0, 0.5);
+          opacity: 0;
+          visibility: hidden; }
+          body .gnav .gnav-ul li {
+            margin: 2vw; } }
+      body .gnav .gnav-ul a {
+        margin-left: 30px;
+        font-size: 30px;
+        font-weight: bold;
+        color: white;
+        text-decoration: none;
+        position: relative; }
+        @media (max-width: 999px) {
+          body .gnav .gnav-ul a {
+            margin-left: 0.5vw;
+            font-size: 8vw;
+            font-weight: 100;
+            text-align: left; } }
+        body .gnav .gnav-ul a::before {
+          content: "";
+          width: 0;
+          height: 2px;
+          background: #fff;
+          display: block;
+          position: absolute;
+          top: 100%;
+          left: 50%;
+          -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+          transition: .3s;
+          z-index: 1000; }
+        body .gnav .gnav-ul a:hover::before {
+          width: 100%; }
+    @media (max-width: 999px) {
+      body .gnav .gnav-toggle {
+        display: block;
+        position: absolute;
+        width: 2.5rem;
+        height: 25px;
+        right: 10px;
+        top: 0;
+        bottom: 0;
+        margin: auto; }
+        body .gnav .gnav-toggle i {
+          display: block;
+          width: 100%;
+          height: 5px;
+          border-radius: 5px;
+          background-color: white;
+          position: absolute;
+          transition: transform .5s, opacity .5s; }
+        body .gnav .gnav-toggle i:nth-child(1) {
+          top: 0; }
+        body .gnav .gnav-toggle i:nth-child(2) {
+          top: 0;
+          bottom: 0;
+          margin: auto; }
+        body .gnav .gnav-toggle i:nth-child(3) {
+          bottom: 0; }
+      body .gnav .show {
+        opacity: 1;
+        visibility: visible;
+        transition: opacity .5s, visibility .5s; }
+        body .gnav .show i:nth-child(1) {
+          transform: translateY(10px) rotate(-45deg); }
+        body .gnav .show i:nth-child(2) {
+          opacity: 0; }
+        body .gnav .show i:nth-child(3) {
+          transform: translateY(-12px) rotate(45deg); } }
+  body #fixed-gnav {
+    position: fixed;
+    box-shadow: 0px 5px 20px -5px rgba(0, 0, 0, 0.36); }
+  body main {
+    background-color: white;
+    padding-top: 10px;
+    padding-bottom: 70px; }
+    body main .contents-wrapper {
+      margin: 20px auto;
+      padding: 10px;
+      box-shadow: 8px -2px 25px -5px rgba(0, 0, 0, 0.33);
+      background-color: #ccd7cc;
+      /*大画面では左右に余白*/
+      /*小画面ではコンテンツを縮小*/ }
+      @media (min-width: 1280px) {
+        body main .contents-wrapper {
+          width: 1200px; } }
+      @media (max-width: 1279px) {
+        body main .contents-wrapper {
+          width: 95vw; } }
+      body main .contents-wrapper section {
+        margin: 100px auto;
+        height: auto;
+        padding: 30px;
+        background-color: #f3f3f3;
+        box-shadow: 0px 0px 20px 5px rgba(0, 0, 0, 0.2);
+        width: 75%; }
+        @media (max-width: 999px) {
+          body main .contents-wrapper section {
+            margin: 30px auto;
+            padding: 5px;
+            width: 90vw; } }
+        body main .contents-wrapper section .section-title {
+          text-align: center;
+          font-size: 45px;
+          font-weight: 100;
+          margin-bottom: 30px; }
+      body main .contents-wrapper .profile .profile-wrapper {
+        margin: 0 auto;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        width: 90%; }
+        @media (max-width: 500px) {
+          body main .contents-wrapper .profile .profile-wrapper {
+            width: 100%;
+            transition: 0.3s; } }
+        body main .contents-wrapper .profile .profile-wrapper .profile-contents {
+          width: 250px;
+          height: auto;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center; }
+          body main .contents-wrapper .profile .profile-wrapper .profile-contents .profile-name h3 {
+            font-size: 24px;
+            font-weight: 900; }
+          body main .contents-wrapper .profile .profile-wrapper .profile-contents .profile-image {
+            width: 200px;
+            height: 200px;
+            margin: 0 20px; }
+            body main .contents-wrapper .profile .profile-wrapper .profile-contents .profile-image .shadow {
+              margin: 140px auto;
+              width: 110px;
+              height: 100px;
+              border-radius: 50%;
+              background-color: black;
+              -webkit-filter: blur(10px) opacity(40%);
+              -o-filter: blur(10px) opacity(40%);
+              filter: blur(10px) opacity(40%);
+              z-index: -1;
+              animation: shadow 1s ease 0.5s infinite alternate none running; }
+@keyframes shadow {
+  0% {
+    -webkit-transform: rotateX(80deg) scale(1);
+    -ms-transform: rotateX(80deg) scale(1);
+    -o-transform: rotateX(80deg) scale(1);
+    transform: rotateX(80deg) scale(1); }
+  10% {
+    -webkit-transform: rotateX(80deg) scale(0.9);
+    -ms-transform: rotateX(80deg) scale(0.9);
+    -o-transform: rotateX(80deg) scale(0.9);
+    transform: rotateX(80deg) scale(0.9); }
+  25% {
+    -webkit-transform: rotateX(80deg) scale(0.8);
+    -ms-transform: rotateX(80deg) scale(0.8);
+    -o-transform: rotateX(80deg) scale(0.8);
+    transform: rotateX(80deg) scale(0.8); }
+  40% {
+    -webkit-transform: rotateX(80deg) scale(0.7);
+    -ms-transform: rotateX(80deg) scale(0.7);
+    -o-transform: rotateX(80deg) scale(0.7);
+    transform: rotateX(80deg) scale(0.7); }
+  50% {
+    -webkit-transform: rotateX(80deg) scale(0.6);
+    -ms-transform: rotateX(80deg) scale(0.6);
+    -o-transform: rotateX(80deg) scale(0.6);
+    transform: rotateX(80deg) scale(0.6); }
+  60% {
+    -webkit-transform: rotateX(80deg) scale(0.7);
+    -ms-transform: rotateX(80deg) scale(0.7);
+    -o-transform: rotateX(80deg) scale(0.7);
+    transform: rotateX(80deg) scale(0.7); }
+  75% {
+    -webkit-transform: rotateX(80deg) scale(0.8);
+    -ms-transform: rotateX(80deg) scale(0.8);
+    -o-transform: rotateX(80deg) scale(0.8);
+    transform: rotateX(80deg) scale(0.8); }
+  90% {
+    -webkit-transform: rotateX(80deg) scale(0.9);
+    -ms-transform: rotateX(80deg) scale(0.9);
+    -o-transform: rotateX(80deg) scale(0.9);
+    transform: rotateX(80deg) scale(0.9); }
+  100% {
+    -webkit-transform: rotateX(80deg) scale(1);
+    -ms-transform: rotateX(80deg) scale(1);
+    -o-transform: rotateX(80deg) scale(1);
+    transform: rotateX(80deg) scale(1); } }
+            body main .contents-wrapper .profile .profile-wrapper .profile-contents .profile-image .penguin {
+              position: relative;
+              width: 200px;
+              height: 200px;
+              margin-top: -345px;
+              animation: jump 1s ease 0.5s infinite alternate none running; }
+              body main .contents-wrapper .profile .profile-wrapper .profile-contents .profile-image .penguin .penguin-body {
+                /*ペンギンの体*/
+                width: 120px;
+                height: 150px;
+                background-color: blue;
+                border-radius: 45% 45% 35% 35%;
+                border-style: solid;
+                border-width: 2px;
+                position: absolute;
+                left: calc(50% - 62px);
+                z-index: 7; }
+                body main .contents-wrapper .profile .profile-wrapper .profile-contents .profile-image .penguin .penguin-body::before {
+                  /*ペンギンのお腹*/
+                  content: "";
+                  display: block;
+                  width: 84px;
+                  height: 85px;
+                  border-radius: 45% 45% 30% 30%;
+                  background: white;
+                  position: absolute;
+                  left: calc(50% - 42px);
+                  bottom: 2px;
+                  z-index: 8; }
+              body main .contents-wrapper .profile .profile-wrapper .profile-contents .profile-image .penguin .penguin-eye {
+                /*ペンギンの目*/ }
+                body main .contents-wrapper .profile .profile-wrapper .profile-contents .profile-image .penguin .penguin-eye .penguin-left-eye {
+                  display: block;
+                  width: 20px;
+                  height: 20px;
+                  border-radius: 50%;
+                  border-style: solid;
+                  border-width: 2px;
+                  background-color: white;
+                  top: 20px;
+                  left: calc(50% - 29px);
+                  position: absolute;
+                  z-index: 89; }
+                body main .contents-wrapper .profile .profile-wrapper .profile-contents .profile-image .penguin .penguin-eye .penguin-left-pupil {
+                  display: block;
+                  width: 10px;
+                  height: 10px;
+                  border-radius: 50%;
+                  background: black;
+                  top: 27px;
+                  left: calc(50% - 22px);
+                  position: absolute;
+                  z-index: 90;
+                  transform: translate(0, 0);
+                  transition: transform 0.1s;
+                  transition-timing-function: ease-out; }
+                body main .contents-wrapper .profile .profile-wrapper .profile-contents .profile-image .penguin .penguin-eye .penguin-right-eye {
+                  display: block;
+                  width: 20px;
+                  height: 20px;
+                  border-radius: 50%;
+                  border-style: solid;
+                  border-width: 2px;
+                  background-color: white;
+                  top: 20px;
+                  left: calc(50% + 5px);
+                  position: absolute;
+                  z-index: 89; }
+                body main .contents-wrapper .profile .profile-wrapper .profile-contents .profile-image .penguin .penguin-eye .penguin-right-pupil {
+                  display: block;
+                  width: 10px;
+                  height: 10px;
+                  border-radius: 50%;
+                  background: black;
+                  top: 27px;
+                  left: calc(50% + 12px);
+                  position: absolute;
+                  z-index: 90;
+                  transform: translate(0, 0);
+                  transition: transform 0.1s;
+                  transition-timing-function: ease-out; }
+              body main .contents-wrapper .profile .profile-wrapper .profile-contents .profile-image .penguin .penguin-beak {
+                /*ペンギンのクチバシ*/
+                width: 30px;
+                height: 10px;
+                border: 2px solid;
+                border-radius: 0 0 50px 50px;
+                background-color: yellow;
+                position: absolute;
+                left: calc(50% - 17px);
+                top: 60px;
+                z-index: 10; }
+                body main .contents-wrapper .profile .profile-wrapper .profile-contents .profile-image .penguin .penguin-beak::before {
+                  content: "";
+                  width: 0px;
+                  height: 0px;
+                  background: transparent;
+                  border-bottom: 10px solid yellow;
+                  border-left: 15px solid transparent;
+                  border-right: 15px solid transparent;
+                  position: absolute;
+                  left: 0;
+                  top: -12px;
+                  z-index: 12; }
+                body main .contents-wrapper .profile .profile-wrapper .profile-contents .profile-image .penguin .penguin-beak::after {
+                  content: "";
+                  width: 0px;
+                  height: 0px;
+                  background: transparent;
+                  border-bottom: 12px solid black;
+                  border-left: 17px solid transparent;
+                  border-right: 17px solid transparent;
+                  position: absolute;
+                  left: -2px;
+                  top: -14px;
+                  z-index: 11; }
+              body main .contents-wrapper .profile .profile-wrapper .profile-contents .profile-image .penguin .penguin-wings, body main .contents-wrapper .profile .profile-wrapper .profile-contents .profile-image .penguin .penguin-wings::before {
+                width: 5px;
+                height: 70px;
+                background-color: blue;
+                border-style: solid;
+                border-color: black;
+                border-radius: 60% 30% 90% 60%;
+                border-width: 2px;
+                position: absolute;
+                top: 60px;
+                left: 34px;
+                z-index: 13; }
+                body main .contents-wrapper .profile .profile-wrapper .profile-contents .profile-image .penguin .penguin-wings::before {
+                  content: "";
+                  border-radius: 30% 60% 60% 90%;
+                  top: -2px;
+                  left: 121px;
+                  z-index: 14; }
+              body main .contents-wrapper .profile .profile-wrapper .profile-contents .profile-image .penguin .penguin-feet {
+                animation: feet 1s ease 0.5s infinite alternate none running; }
+                body main .contents-wrapper .profile .profile-wrapper .profile-contents .profile-image .penguin .penguin-feet .penguin-left-foot, body main .contents-wrapper .profile .profile-wrapper .profile-contents .profile-image .penguin .penguin-feet .penguin-left-foot::before, body main .contents-wrapper .profile .profile-wrapper .profile-contents .profile-image .penguin .penguin-feet .penguin-left-foot::after, body main .contents-wrapper .profile .profile-wrapper .profile-contents .profile-image .penguin .penguin-feet .penguin-right-foot, body main .contents-wrapper .profile .profile-wrapper .profile-contents .profile-image .penguin .penguin-feet .penguin-right-foot::before, body main .contents-wrapper .profile .profile-wrapper .profile-contents .profile-image .penguin .penguin-feet .penguin-right-foot::after {
+                  width: 0px;
+                  height: 0px;
+                  background: transparent;
+                  border-top: 40px solid yellow;
+                  border-bottom: 0 solid transparent;
+                  border-left: 8px solid transparent;
+                  border-right: 8px solid transparent;
+                  position: absolute;
+                  left: 72px;
+                  top: 133px;
+                  z-index: 1;
+                  animation: foot 1s ease 0.5s infinite alternate none running; }
+@keyframes foot {
+  0% {
+    transform: rotateX(78deg); }
+  10% {
+    transform: rotateX(77deg); }
+  25% {
+    transform: rotateX(70deg); }
+  40% {
+    transform: rotateX(60deg); }
+  50% {
+    transform: rotateX(60deg); }
+  60% {
+    transform: rotateX(60deg); }
+  75% {
+    transform: rotateX(70deg); }
+  90% {
+    transform: rotateX(77deg); }
+  100% {
+    transform: rotateX(78deg); } }
+                  body main .contents-wrapper .profile .profile-wrapper .profile-contents .profile-image .penguin .penguin-feet .penguin-left-foot::before, body main .contents-wrapper .profile .profile-wrapper .profile-contents .profile-image .penguin .penguin-feet .penguin-right-foot::before {
+                    content: "";
+                    left: -16px;
+                    top: -40px;
+                    z-index: 2;
+                    animation: finger1 1s ease 0.5s infinite alternate none running; }
+@keyframes finger1 {
+  0% {
+    transform: rotate(15deg); }
+  10% {
+    transform: rotate(15deg); }
+  25% {
+    transform: rotate(15deg); }
+  40% {
+    transform: rotate(15deg); }
+  50% {
+    transform: rotate(15deg); }
+  60% {
+    transform: rotate(15deg); }
+  75% {
+    transform: rotate(15deg); }
+  90% {
+    transform: rotate(15deg); }
+  100% {
+    transform: rotate(15deg); } }
+                  body main .contents-wrapper .profile .profile-wrapper .profile-contents .profile-image .penguin .penguin-feet .penguin-left-foot::after, body main .contents-wrapper .profile .profile-wrapper .profile-contents .profile-image .penguin .penguin-feet .penguin-right-foot::after {
+                    content: "";
+                    transform: rotateY(-15deg);
+                    left: 0;
+                    top: -40px;
+                    z-index: 3;
+                    animation: finger2 1s ease 0.5s infinite alternate none running; }
+@keyframes finger2 {
+  0% {
+    transform: rotate(-15deg); }
+  10% {
+    transform: rotate(-15deg); }
+  25% {
+    transform: rotate(-15deg); }
+  40% {
+    transform: rotate(-15deg); }
+  50% {
+    transform: rotate(-15deg); }
+  60% {
+    transform: rotate(-15deg); }
+  75% {
+    transform: rotate(-15deg); }
+  90% {
+    transform: rotate(-15deg); }
+  100% {
+    transform: rotate(-15deg); } }
+                body main .contents-wrapper .profile .profile-wrapper .profile-contents .profile-image .penguin .penguin-feet .penguin-right-foot {
+                  left: 112px; }
+                  body main .contents-wrapper .profile .profile-wrapper .profile-contents .profile-image .penguin .penguin-feet .penguin-right-foot::before {
+                    content: "";
+                    left: -16px;
+                    top: -40px;
+                    transform: rotate(15deg);
+                    z-index: 2; }
+                  body main .contents-wrapper .profile .profile-wrapper .profile-contents .profile-image .penguin .penguin-feet .penguin-right-foot::after {
+                    content: "";
+                    width: 0px;
+                    left: 0;
+                    top: -40px;
+                    transform: rotate(-15deg);
+                    z-index: 3; }
+@keyframes feet {
+  0% {
+    transform: translateY(0); }
+  10% {
+    transform: translateY(2px); }
+  25% {
+    transform: translateY(4px); }
+  40% {
+    transform: translateY(6px); }
+  50% {
+    transform: translateY(6px); }
+  60% {
+    transform: translateY(6px); }
+  75% {
+    transform: translateY(4px); }
+  90% {
+    transform: translateY(2px); }
+  100% {
+    transform: translateY(0); } }
+@keyframes jump {
+  0% {
+    transform: translate(0, 0); }
+  10% {
+    transform: translate(0, -12.6px); }
+  25% {
+    transform: translate(0, -26.2px); }
+  40% {
+    transform: translate(0, -33.6px); }
+  50% {
+    transform: translate(0, -35px); }
+  60% {
+    transform: translate(0, -33.6px); }
+  75% {
+    transform: translate(0, -26.2px); }
+  90% {
+    transform: translate(0, -12.6px); }
+  100% {
+    transform: translate(0, 0); } }
+        body main .contents-wrapper .profile .profile-wrapper .profile-desc {
+          width: 60%;
+          margin: 10px 0 10px 20px; }
+          @media (max-width: 500px) {
+            body main .contents-wrapper .profile .profile-wrapper .profile-desc {
+              width: 95%;
+              margin: 10px auto;
+              transition: 0.3s; } }
+      body main .contents-wrapper .skills ul {
+        padding: 0;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        list-style-type: none; }
+        body main .contents-wrapper .skills ul li {
+          margin-left: 20px; }
+          body main .contents-wrapper .skills ul li i {
+            font-size: 115px;
+            margin: 10px;
+            margin-top: 0px; }
+          body main .contents-wrapper .skills ul li .fa-html5 {
+            color: darkorange; }
+          body main .contents-wrapper .skills ul li .fa-css3-alt {
+            color: deepskyblue; }
+          body main .contents-wrapper .skills ul li .fa-js {
+            color: #f8d030; }
+          body main .contents-wrapper .skills ul li .fa-java {
+            color: #ee3340; }
+          body main .contents-wrapper .skills ul li .fa-python {
+            color: #6066ff; }
+          body main .contents-wrapper .skills ul li .fa-github-square {
+            color: #444; }
+          body main .contents-wrapper .skills ul li .skill-desc {
+            font-weight: bold;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-bottom: 15px; }
+      body main .contents-wrapper .works .item-list {
+        width: 90%;
+        margin: 0 auto;
+        list-style-type: none;
+        display: flex;
+        justify-content: center; }
+        body main .contents-wrapper .works .item-list .item {
+          margin: 0 50px 20px 50px;
+          background-color: #444044;
+          color: white;
+          box-shadow: 0px 0px 15px 3px rgba(0, 0, 0, 0.2);
+          padding: 20px 30px;
+          display: flex;
+          flex-wrap: wrap;
+          align-items: center;
+          justify-content: center; }
+          @media (max-width: 800px) {
+            body main .contents-wrapper .works .item-list .item {
+              width: 200px; } }
+          body main .contents-wrapper .works .item-list .item .figure-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 0 5px; }
+            body main .contents-wrapper .works .item-list .item .figure-wrapper .item-caption-title {
+              width: 200px;
+              font-size: 18px;
+              font-weight: bold;
+              margin-bottom: 5px;
+              text-align: left; }
+            body main .contents-wrapper .works .item-list .item .figure-wrapper .item-figure {
+              width: 200px; }
+          body main .contents-wrapper .works .item-list .item .item-caption {
+            width: 150px;
+            margin: 0 5px; }
+            @media (max-width: 800px) {
+              body main .contents-wrapper .works .item-list .item .item-caption {
+                width: 200px; } }
+            body main .contents-wrapper .works .item-list .item .item-caption .item-caption-info {
+              margin-top: 3px;
+              font-size: 13px; }
+            body main .contents-wrapper .works .item-list .item .item-caption .item-link {
+              margin-top: 5px; }
+              body main .contents-wrapper .works .item-list .item .item-caption .item-link a:link {
+                color: #0000FF; }
+              body main .contents-wrapper .works .item-list .item .item-caption .item-link a:visited {
+                color: #00BFFF; }
+              body main .contents-wrapper .works .item-list .item .item-caption .item-link a:hover {
+                color: #FF4500; }
+  body .slider-arrow {
+    position: absolute;
+    top: 50%;
+    height: 36px;
+    margin-top: -18px;
+    color: #444044;
+    line-height: 36px;
+    font-size: 28px;
+    cursor: pointer;
+    z-index: 10; }
+  body .slider-prev {
+    left: -20px; }
+  body .slider-next {
+    right: -20px; }
+  body .footer {
+    background-color: black;
+    color: white;
+    padding: 20px 0;
+    margin-top: 20px;
+    text-align: center; }
+  body .sticky {
+    position: sticky;
+    top: 0; }
+
+/*# sourceMappingURL=main.css.map */

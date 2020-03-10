@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="jp">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Portfolio Introduction</title>
+    <link href="intro_portfolio.css" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Montserrat|Noto+Sans+JP&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="background"></div>
+    <!--  コンテンツ  -->
+    <main class="main">
+        <div class="whole-info">
+            <div class="top-wrapper">
+                <h1 class="site-name">Yoshiki OKAJIMA Portfolio Site</h1>
+                <ul class="link-ul">
+                    <li class="link-li"><a href="Portfolio.html">Portfolio</a></li>
+                    <li class="link-li"><a href="https://github.com/YoshikiOKAJIMA/Portfolios">GitHub</a></li>
+                </ul>
+            </div>
+            <ul class="capture-ul">
+                <li class="capture-li"><img src="image/homepage.png" alt="ポートフォリオのトップ画像です。" class="site-img"></li>
+                <li class="capture-li"><img src="image/homepage2.png" alt="ポートフォリオのコンテンツ画像です。" class="site-img"></li>
+            </ul>
+            <ul class="skills-desc">
+                <li class="skill-li">
+                    <p>Languages: HTML5/CSS3(SCSS)/JavaScript</p>
+                </li>
+                <li class="skill-li">
+                    <p>Libraries: jQuery/slick/ScrollReveal</p>
+                </li>
+                <li class="skill-li">
+                    <p>Others: Emmet/Font Awesome/Git/Google Fonts</p>
+                </li>
+            </ul>
+        </div>
+        <ul class="desc-ul">
+            <li class="desc-li">
+                <p class="desc-title">&lt;Overall&gt;</p>
+                <p class="desc">スキルの広さと深さについて、バランスよく配置したいと考えてデザインしました。HTML/CSSに加えjQueryやその他プラグインを必要に応じて満遍なく実装し、その工程においてもEmmetやGitによる効率化を図りました。結果としてパララックス効果やレスポンシブ対応、スクロールアニメーションといった多用される技術を活用できたと考えています。また、トップのドット背景とプロフィールのペンギンは自ら仕組みを考え、調べながら実装しました。その過程でCSS/HTML/JavaScriptへの理解が深まったと思います。</p>
+            </li>
+            <li class="desc-li">
+                <p class="desc-title">&lt;Site Top&gt;</p>
+                <p class="desc">背景のドットについて工夫しました。インタラクティブな機能として、各ドットを出入りするマウスの方向に対応した色を示すようにコーディングしました。出入り時の座標をjQueryにより取得し、各点を結んだ線分の角度を色に変換するため、HSL色空間を採用しました。ただのドットでは円が小さく、マウスポインタが通過しないことがあるため、cssとしてradial-gradientを適用し、見かけ上の円よりも大きい範囲で当たり判定がされます。反省点は、HTML要素が多くなってしまい読み込みに時間がかかる場合があることです。また、パララックス効果の実装にあたってはナビゲーションバーなどとの兼ね合いを考えて試行錯誤しました。</p>
+            </li>
+            <li class="desc-li">
+                <p class="desc-title">&lt;Navigation Bar&gt;</p>
+                <p class="desc">ナビゲーションバーの挙動を工夫しました。Top画面の下にあったナビゲーションバーを上端までスクロールすると上端に張り付きます。jQueryによりナビゲーションバーのスクロール位置を監視、cssの適用を切り替えることで実現しています。レスポンシブ対応として、メディアポートを通したナビゲーションドロアーへの切り替わりも実装しました。</p>
+            </li>
+            <li class="desc-li">
+                <p class="desc-title">&lt;PROFILE&gt;</p>
+                <p class="desc">ペンギンのcssアニメーションを作りこみました。各パーツはbefore・after疑似要素やボックスシャドウを多用し、最少のHTML要素で構成しました。アニメーションにおいては重力加速度や足の角度を考えて動きを微調整しました。ペンギンの目はマウスを追跡するようjQueryを設定しました。ペンギンを描画したのは、パーツを単純化しやすいと考えたためです。</p>
+            </li>
+            <li class="desc-li">
+                <p class="desc-title">&lt;SKILLS&gt;</p>
+                <p class="desc">アイコンフォントを採用し、一目でスキル構成がわかるように努めました。cssで色設定を行えるよう、&lt;i&gt;要素でCDNから取り込む方式を採っています。</p>
+            </li>
+            <li class="desc-li">
+                <p class="desc-title">&lt;WORKS&gt;</p>
+                <p class="desc">レスポンシブ対応の容易なjQueryプラグインslickを用い、複数の作品をコンパクトにまとめ得るデザインにしました。シンプルなデザインは、直感的な操作を助けると考えます。</p>
+            </li>
+        </ul>
+    </main>
+    <!---  フッター  --->
+    <footer class="footer"></footer>
+</body>
+
+</html>
